@@ -1,5 +1,5 @@
 # Define count_entries()
-def count_entries(csv_file,c_size,colname):
+def count_entries(csv_file, c_size, colname):
     """Return a dictionary with counts of
     occurrences as value for each key."""
     
@@ -7,10 +7,10 @@ def count_entries(csv_file,c_size,colname):
     counts_dict = {}
 
     # Iterate over the file chunk by chunk
-    for chunk in pd.read_csv(csv_file,c_size):
+    for chunk in pd.read_csv(csv_file, chunksize=c_size):
 
         # Iterate over the column in DataFrame
-        for entry in chunck[colname]:
+        for entry in chunk[colname]:
             if entry in counts_dict.keys():
                 counts_dict[entry] += 1
             else:
